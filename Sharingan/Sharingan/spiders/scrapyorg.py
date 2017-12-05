@@ -6,7 +6,7 @@ from scrapy.spiders import CrawlSpider, Rule
 
 class ScrapyorgSpider(CrawlSpider):
     name = 'scrapyorg'
-    allowed_domains = ['scrapy.org']
+    #allowed_domains = ['scrapy.org']
     start_urls = ['http://scrapy.org/']
 
     rules = (
@@ -18,5 +18,5 @@ class ScrapyorgSpider(CrawlSpider):
         i['domain_id'] = response.xpath('//input[@id="sid"]/@value').extract()
         i['name'] = response.xpath('//div[@id="name"]').extract()
         i['description'] = response.xpath('//div[@id="description"]').extract()
-        print i
+        print "------[ Here ] ----------",i
         return i
